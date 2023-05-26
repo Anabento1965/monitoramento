@@ -1,20 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Editar "{{ post['title'] }}" {% endblock %}</h1>
+    <h1>{% block title %} Editar "{{ post.title }}" {% endblock %}</h1>
 
     <form method="post">
         <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" placeholder="Post title"
+            <label for="rua">Rua</label>
+            <input type="text" name="rua" placeholder="Rua"
                    class="form-control"
-                   value="{{ request.form['title'] or post['title'] }}">
+                   value="{{ request.form['rua'] or post.rua }}">
         </div>
 
         <div class="form-group">
-            <label for="content">Content</label>
-            <textarea name="content" placeholder="Post content"
-                      class="form-control">{{ request.form['content'] or post['content'] }}</textarea>
+            <label for="title">Número</label>
+            <input type="text" name="title" placeholder="Número"
+                   class="form-control"
+                   value="{{ request.form['title'] or post.title }}">
+        </div>
+
+        <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" name="cidade" placeholder="Cidade"
+                   class="form-control"
+                   value="{{ request.form['cidade'] or post.cidade }}">
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado</label>
+            <input type="text" name="estado" placeholder="Estado"
+                   class="form-control"
+                   value="{{ request.form['estado'] or post.estado }}">
+        </div>
+
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <input type="text" name="tipo" placeholder="Tipo"
+                   class="form-control"
+                   value="{{ request.form['tipo'] or post.tipo }}">
+        </div>
+
+        <div class="form-group">
+            <label for="adesao">Adesão</label>
+            <input type="text" name="adesao" placeholder="Adesão"
+                   class="form-control"
+                   value="{{ request.form['adesao'] or post.adesao }}">
+        </div>
+
+        <div class="form-group">
+            <label for="content">Ação</label>
+            <textarea name="content" placeholder="Ação realizada"
+                      class="form-control">{{ request.form['content'] or post.content }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="ocorrencia">Ocorrência</label>
+            <textarea name="ocorrencia" placeholder="Ocorrência"
+                      class="form-control">{{ request.form['ocorrencia'] or post.ocorrencia }}</textarea>
         </div>
 
         <div class="form-group">
@@ -22,9 +63,10 @@
         </div>
     </form>
     <hr>
-    <form action="{{ url_for('delete', id=post['id']) }}" method="POST">
+    <form action="{{ url_for('delete', id=post.id) }}" method="POST">
         <input type="submit" value="Apagar"
                class="btn btn-danger btn-sm"
                onclick="return confirm('Tem certeza que deseja apagar essa postagem?')">
     </form>
 {% endblock %}
+

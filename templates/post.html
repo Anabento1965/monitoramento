@@ -2,8 +2,21 @@
 
 {% block content %}
     {% block title %}
-        <h2>{{ post['title'] }}</h2>
+        <h3>Endereço: </h3>
+        <p>{{ post.rua }} - {{ post.title }}. {{ post.cidade }} - {{ post.estado }}</p>
     {% endblock %}
-    <span class="badge badge-primary">{{ post['created'] }}</span>
-    <p>{{ post['content'] }}</p>
+
+    <h3>Tipo:</h3>
+    <p>{{ post.tipo }}</p>
+
+    <h3>Adesão:</h3>
+    <p>{{ post.adesao }}</p>
+
+    <h3>Ação:</h3>
+    <p>{{ post.content }}</p>
+
+    <h3>Ocorrência:</h3>
+    <p>{{ post.ocorrencia }}</p>
+
+    <span class="badge badge-primary">{{ post.created }}</span>
 {% endblock %}
